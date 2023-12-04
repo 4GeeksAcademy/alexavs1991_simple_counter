@@ -1,26 +1,18 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
+function Home ({seconds})
+{
 
-//include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
-
-//create your first component
-const Home = () => {
-	return (
-		<div className="text-center">
-			<h1 className="text-center mt-5">Hello Rigo!</h1>
-			<p>
-				<img src={rigoImage} />
-			</p>
-			<a href="#" className="btn btn-success">
-				If you see this green button... bootstrap is working...
-			</a>
-			<p>
-				Made by{" "}
-				<a href="http://www.4geeksacademy.com">4Geeks Academy</a>, with
-				love!
-			</p>
+	return (<div className="clock">
+		<div className="calendar">
+		<i className="far fa-clock"></i>
 		</div>
-	);
-};
-
-export default Home;
+		<div className="one">{Math.floor(seconds / 100000) % 10}</div>
+		<div className="two">{Math.floor(seconds / 10000) % 10}</div>
+		<div className="three">{Math.floor(seconds / 1000) % 10}</div>
+		<div className="four">{Math.floor(seconds / 100) % 10}</div>
+		<div className="five">{Math.floor(seconds / 10) % 10}</div>
+		<div className="six">{Math.floor(seconds / 1) % 10}</div>
+		
+	</div>);
+}
+export default Home
